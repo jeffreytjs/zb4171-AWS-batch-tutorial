@@ -1,5 +1,5 @@
 title: "An attempt at a tutorial utilising AWS for Scalable Image-Based Transcriptomic Data Analysis"
-theme: minima
+theme: jekyll-theme-minimal
 
 markdown: kramdown
 

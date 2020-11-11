@@ -1,14 +1,9 @@
-title: "CLI-nic"
+title: "An attempt at a tutorial utilising AWS for Scalable Image-Based Transcriptomic Data Analysis"
 theme: minima
-
-header_pages:
-  - UserGuide.md
-  - DeveloperGuide.md
-  - AboutUs.md
 
 markdown: kramdown
 
-repository: "AY2021S1-CS2103-W14-4/tp"
+repository: "jeffreytjs/zb4171-AWS-batch-tutorial"
 github_icon: "images/github-icon.png"
 
 plugins:

@@ -1,0 +1,10 @@
+{
+  "jobDefinitionName": "process-fov",
+  "type": "container",
+  "containerProperties": {
+    "jobRoleArn": "REPLACE_WITH_YOUR_OWN_arn:awx:iam_HERE", // e.g. arn:aws:iam::011xxx3215xxx:role/EC2Controller",
+    "image": "spacetx/process-fov",
+    "vcpus": 1,
+    "memory": 1024
+  }
+}

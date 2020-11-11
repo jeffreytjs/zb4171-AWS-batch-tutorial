@@ -15,7 +15,7 @@ Despite the article being published less than a year ago, the walkthrough cannot
 This tutorial is meant to be largely reproducible on Command Line Interface, with certain components to be done on the AWS console.
 
 ## Introduction to AWS Batch and running a Batch Job using a Docker container
-I **strongly recommend** following through this article titled [AWS Batch: A Detailed Guide to Kicking Off Your First Job](https://stackify.com/aws-batch-guide/) by CHRISTIAN MELENDEZ. It will guide you to set up and configure your AWS account and even  AWS CLI. Once you get it up and running, the subsequent tutorial will be a breeze.
+I **strongly recommend** following through this article titled [AWS Batch: A Detailed Guide to Kicking Off Your First Job](https://stackify.com/aws-batch-guide/) by Christian Melendez. It will guide you to set up and configure your AWS account and even  AWS CLI. Once you get it up and running, the subsequent tutorial will be a breeze.
 
 ## Creating your working directory, download all the json files and place them in your working directory.
 To facilitate the subsequent steps and to make sure that your S3 bucket has been set up, run the following
@@ -82,7 +82,7 @@ What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/
 ## Configuring IAM roles, creating compute engine and creating job queue
 Either one of these guides will effectively bring you through this segment:
 1. [AWS Batch: A Detailed Guide to Kicking Off Your First Job](https://stackify.com/aws-batch-guide/) by
-CHRISTIAN MELENDEZ.
+Christian Melendez.
 1. [Building a scalable image processing pipeline for image-based transcriptomics](https://aws.amazon.com/blogs/industries/building-a-scalable-image-processing-pipeline-for-image-based-transcriptomics/)
 by Shannon Axelrod.
 
@@ -118,6 +118,13 @@ What you should see on the [AWS Batch Job Definitions list](https://console.aws.
 ![aws_console_process_fov_job_def](images/aws_console_process_fov_job_def.png)
 ![aws_console_merge_results_job_def](images/aws_console_merge_results_job_def.png)
  
+
+For more information: 
+
+[Example Job Definitions](https://docs.aws.amazon.com/batch/latest/userguide/example-job-definitions.html)
+[Container Properties](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html)
+
+
 ## Creating Jobs
 ```
 python3 starfish-workflow.py \
@@ -148,7 +155,7 @@ Upon completion of the jobs:
 
 ![aws_console_bucket_results](images/aws_console_bucket_results.png)
 
-Results can then be used for further analysis, this example displays the results on Google Colab.
+Results can then be used for further analysis, this example displays the results on [Google Colab](https://colab.research.google.com/drive/1msB2H71SOpxbjJ4uJW2x5tTatPJvAcnw?usp=sharing).
 
 ![collab_results](images/collab_results.png)
 
@@ -166,3 +173,11 @@ Example 1:
 Example 2:
 
 ![debug_msg2](images/debug_msg2.png)
+
+
+Credits:
+Initial inspiration for project - [Article by Shannon Axelrod](https://aws.amazon.com/blogs/industries/building-a-scalable-image-processing-pipeline-for-image-based-transcriptomics/)
+Basic understanding of AWS Batch - [Article by Christian Melendez](https://stackify.com/aws-batch-guide/)
+Script for downloading and formatting data - [SpaceTX Documentation](https://spacetx-starfish.readthedocs.io/en/mcai-request-support/getting_started/formatting_data/advanced.html)
+Source of example codes - [SpaceTX StarFish GitHub](https://github.com/spacetx/starfish)
+Future work - [Segmentation and mapping](https://github.com/spacetx/segment_and_map)

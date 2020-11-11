@@ -52,6 +52,7 @@ This command should download 44 images:
 *	DAPI nuclear stain
 
 What you should see on the command line:
+
 ![cli_raw_tifs](images/cli_raw_tifs.png)
 
 Now we want to format the raw data into SpaceTX format.
@@ -65,6 +66,7 @@ ls iss/formatted/*.json
 ```
 
 What you should see on the command line:
+
 ![cli_formatted_json](images/cli_formatted_json.png)
 
 Copy the formatted .json files into your S3 bucket
@@ -74,9 +76,11 @@ aws s3 sync iss/formatted/ REPLACE_WITH_YOUR_S3_BUCKET
 In my case, `aws s3 sync iss/formatted/ s3://zb4171-2020/Group2/formatted`
  
 What you should see on the command line:
+
 ![cli_synced](images/cli_synced.png)
 
 What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/):
+
 ![aws_console_bucket](images/aws_console_bucket.png)
 
 ## Configuring IAM roles, creating compute engine and creating job queue

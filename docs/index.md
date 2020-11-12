@@ -3,7 +3,6 @@ layout: page
 title: An attempt at a tutorial utilising AWS for Scalable Image-Based Transcriptomic Data Analysis
 ---
 
-# An attempt at a tutorial utilising AWS for Scalable Image-Based Transcriptomic Data Analysis
 **Foreword:** The use case of this tutorial may be highly specific and extensions to other projects is
  hopeful but have yet to be attempted.
 

@@ -55,7 +55,7 @@ This command should download 44 images:
 *	4 channels (Cy 3 5, Cy 3, Cy 5, and FITC)
 *	DAPI nuclear stain
 
-What you should see on the command line:
+What you should see on the command line:<br>
 ![cli_raw_tifs](images/cli_raw_tifs.png)
 
 Now we want to format the raw data into SpaceTX format.
@@ -68,7 +68,7 @@ python3 format_iss_breast_data.py \
 ls iss/formatted/*.json
 ```
 
-What you should see on the command line:
+What you should see on the command line:<br>
 ![cli_formatted_json](images/cli_formatted_json.png)
 
 Copy the formatted .json files into your S3 bucket
@@ -77,10 +77,10 @@ aws s3 sync iss/formatted/ REPLACE_WITH_YOUR_S3_BUCKET
 ```
 In my case, `aws s3 sync iss/formatted/ s3://zb4171-2020/Group2/formatted`
  
-What you should see on the command line:
+What you should see on the command line:<br>
 ![cli_synced](images/cli_synced.png)
 
-What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/):
+What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/):<br>
 ![aws_console_bucket](images/aws_console_bucket.png)
 
 ## Configuring IAM roles, creating compute engine and creating job queue
@@ -180,8 +180,13 @@ Example 2:
 
 
 Credits:
+<br>
 Initial inspiration for project - [Article by Shannon Axelrod](https://aws.amazon.com/blogs/industries/building-a-scalable-image-processing-pipeline-for-image-based-transcriptomics/)
+<br>
 Basic understanding of AWS Batch - [Article by Christian Melendez](https://stackify.com/aws-batch-guide/)
+<br>
 Script for downloading and formatting data - [SpaceTX Documentation](https://spacetx-starfish.readthedocs.io/en/mcai-request-support/getting_started/formatting_data/advanced.html)
+<br>
 Source of example codes - [SpaceTX StarFish GitHub](https://github.com/spacetx/starfish)
+<br>
 Future work - [Segmentation and mapping](https://github.com/spacetx/segment_and_map)

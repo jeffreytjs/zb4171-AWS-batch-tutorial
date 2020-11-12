@@ -10,7 +10,7 @@ Assignment done by: [Jeffrey](https://github.com/jeffreytjs) and [Yida](https://
 This tutorial is meant to be built upon the walkthrough by Shannon Axelrod in her article [Building a
  scalable image processing pipeline for image-based transcriptomics](https://aws.amazon.com/blogs/industries/building-a-scalable-image-processing-pipeline-for-image-based-transcriptomics/). Her article has very clear explanation of image-based transcriptomics and starfish, do check out the article before this tutorial to get an idea of the workflow. 
 
-![Summary of workflow](images/summary_of_workflow.png)
+![Summary of workflow](docs/images/summary_of_workflow.png)
 
 [Summary of workflow](https://d2908q01vomqb2.cloudfront.net/c5b76da3e608d34edb07244cd9b875ee86906328/2019/12/16/C3-1-1024x487.png) retrieved from the article 
 
@@ -56,8 +56,9 @@ This command should download 44 images:
 *	4 channels (Cy 3 5, Cy 3, Cy 5, and FITC)
 *	DAPI nuclear stain
 
-What you should see on the command line:<br>
-![cli_raw_tifs](images/cli_raw_tifs.png)
+What you should see on the command line:
+
+![cli_raw_tifs](docs/images/cli_raw_tifs.png)
 
 Now we want to format the raw data into SpaceTX format.
 ```
@@ -69,8 +70,9 @@ python3 format_iss_breast_data.py \
 ls iss/formatted/*.json
 ```
 
-What you should see on the command line:<br>
-![cli_formatted_json](images/cli_formatted_json.png)
+What you should see on the command line:
+
+![cli_formatted_json](docs/images/cli_formatted_json.png)
 
 Copy the formatted .json files into your S3 bucket
 ```
@@ -78,11 +80,13 @@ aws s3 sync iss/formatted/ REPLACE_WITH_YOUR_S3_BUCKET
 ```
 In my case, `aws s3 sync iss/formatted/ s3://zb4171-2020/Group2/formatted`
  
-What you should see on the command line:<br>
-![cli_synced](images/cli_synced.png)
+What you should see on the command line:
 
-What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/):<br>
-![aws_console_bucket](images/aws_console_bucket.png)
+![cli_synced](docs/images/cli_synced.png)
+
+What you should see on the [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/):
+
+![aws_console_bucket](docs/images/aws_console_bucket.png)
 
 ## Configuring IAM roles, creating compute engine and creating job queue
 Either one of these guides will effectively bring you through this segment:
@@ -104,7 +108,7 @@ At this point, command field can be overwritten so we can leave it as it is for 
  
 What you should see on the [AWS Batch Job Definitions](https://console.aws.amazon.com/batch/):
 
-![aws_console_job_def](images/aws_console_job_def.png)
+![aws_console_job_def](docs/images/aws_console_job_def.png)
 
 2. Using CLI
 ```
@@ -116,17 +120,18 @@ aws batch register-job-definition --cli-input-json file://job-definition-merge-r
 
 What you should see on the command line:
 
-![cli_job_def](images/cli_job_def.png)
+![cli_job_def](docs/images/cli_job_def.png)
 
 What you should see on the [AWS Batch Job Definitions list](https://console.aws.amazon.com/batch/):
 
-![aws_console_process_fov_job_def](images/aws_console_process_fov_job_def.png)
-![aws_console_merge_results_job_def](images/aws_console_merge_results_job_def.png)
+![aws_console_process_fov_job_def](docs/images/aws_console_process_fov_job_def.png)
+![aws_console_merge_results_job_def](docs/images/aws_console_merge_results_job_def.png)
  
 
 For more information: 
 
-[Example Job Definitions](https://docs.aws.amazon.com/batch/latest/userguide/example-job-definitions.html)
+[Job Definitions Examples](https://docs.aws.amazon.com/batch/latest/userguide/example-job-definitions.html)
+
 [Container Properties](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html)
 
 
@@ -142,52 +147,48 @@ python3 starfish-workflow.py \
  
 What you should see on the command line:
 
-![cli_submit_job](images/cli_submit_job.png)
+![cli_submit_job](docs/images/cli_submit_job.png)
 
 What you should see on the [AWS Jobs List](https://console.aws.amazon.com/batch/):
 
-![aws_console_jobs_pending](images/aws_console_jobs_pending.png)
+![aws_console_jobs_pending](docs/images/aws_console_jobs_pending.png)
 
 Clicking into `process-fov-batch-job`:
 
-![aws_console_2_runnable](images/aws_console_2_runnable.png)
+![aws_console_2_runnable](docs/images/aws_console_2_runnable.png)
 
 Upon completion of the jobs:
 
-![aws_console_jobs_succeded](images/aws_console_jobs_succeded.png)
+![aws_console_jobs_succeded](docs/images/aws_console_jobs_succeded.png)
  
 ## Retrieving the results from S3 Bucket
 
-![aws_console_bucket_results](images/aws_console_bucket_results.png)
+![aws_console_bucket_results](docs/images/aws_console_bucket_results.png)
 
 Results can then be used for further analysis, this example displays the results on [Google Colab](https://colab.research.google.com/drive/1msB2H71SOpxbjJ4uJW2x5tTatPJvAcnw?usp=sharing).
 
-![collab_results](images/collab_results.png)
+![collab_results](docs/images/collab_results.png)
 
 ## Bonus:
 For debugging purposes, the logs for each job can be viewed at the highlighted link below:
 
-![debugging](images/debugging.png)
+![debugging](docs/images/debugging.png)
 
 What you will see:
 
-Example 1:
+Example:
 
-![debug_msg1](images/debug_msg1.png)
-
-Example 2:
-
-![debug_msg2](images/debug_msg2.png)
+![debug_msg1](docs/images/debug_msg1.png)
 
 
 Credits:
-<br>
+
 Initial inspiration for project - [Article by Shannon Axelrod](https://aws.amazon.com/blogs/industries/building-a-scalable-image-processing-pipeline-for-image-based-transcriptomics/)
-<br>
+
 Basic understanding of AWS Batch - [Article by Christian Melendez](https://stackify.com/aws-batch-guide/)
-<br>
+
 Script for downloading and formatting data - [SpaceTX Documentation](https://spacetx-starfish.readthedocs.io/en/mcai-request-support/getting_started/formatting_data/advanced.html)
-<br>
+
 Source of example codes - [SpaceTX StarFish GitHub](https://github.com/spacetx/starfish)
-<br>
+
 Future work - [Segmentation and mapping](https://github.com/spacetx/segment_and_map)
